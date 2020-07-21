@@ -5,10 +5,7 @@ public class PrintNumInThread {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         PrintNumInThread printNumInThread = new PrintNumInThread();
-        printNumInThread.print(10);
-        while (true) {
-
-        }
+        printNumInThread.print(100);
     }
 
     private static final Object LOCK = new Object();

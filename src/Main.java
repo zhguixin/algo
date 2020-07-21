@@ -1,7 +1,7 @@
 import site.zhguixin.algo.collection.BinaryHeap;
 import site.zhguixin.algo.collection.MinStack;
 import site.zhguixin.algo.dp.FindMaxVal;
-import site.zhguixin.algo.dp.FindMinDst;
+import site.zhguixin.algo.dp.FindMinDistance;
 import site.zhguixin.algo.math.MaxCapacity;
 import site.zhguixin.algo.search.BinarySearch;
 import site.zhguixin.algo.sort.QuickSort;
@@ -17,7 +17,8 @@ public class Main {
 //        findMaxVal();
 //        findMathCapacity();
 //        getMinInStack();
-        findMinDst();
+//        findMinDistance();
+        iterator();
     }
 
     /**
@@ -67,13 +68,34 @@ public class Main {
         System.out.println(minStack.getMin());
     }
 
-    private static void findMinDst() {
+    private static void findMinDistance() {
         // 动态规划解决最短距离问题
-        FindMinDst findMinDst = new FindMinDst();
+        FindMinDistance findMinDistance = new FindMinDistance();
         int[][] matrix = {
                 {1,3,5,9},{2,1,3,4},{5,2,6,7},{6,8,4,3}
         };
-        int minDistance = findMinDst.find(matrix, 4);
+        int minDistance = findMinDistance.find(matrix, 4);
         System.out.println("Min Distance is:" + minDistance);
+    }
+
+    private static void iterator() {
+        int[][] arr = new int[3][3];
+        int m= 0;
+        for (int i =0;i <3;i++) {
+            for (int j=0;j<3;j++) {
+                arr[i][j] = m++;
+            }
+        }
+//        for (int i =0;i <3;i++) {
+//            for (int j=0;j<3;j++) {
+//                System.out.println("i=" + i + ";j=" + j+";arr[i][j]:" + arr[i][j]);
+//            }
+//        }
+        // i从后往前遍历,j一直保持在i的右边.求最长回文子序列时,用到这种遍历方式
+        for (int i =3;i >=0;i--) {
+            for (int j=i;j<3;j++) {
+                System.out.println("i=" + i + ";j=" + j+";arr[i][j]:" + arr[i][j]);
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 package site.zhguixin.algo.dp;
 
 // 在一个n*n的矩阵中查找最短路径
-public class FindMinDst {
+public class FindMinDistance {
 
     // 状态转移方程:dp[i][j] = matrix[i][j] + Math.min(dp[i-1][j], dp[i][j-1])
     public int find(int[][] matrix, int n) {

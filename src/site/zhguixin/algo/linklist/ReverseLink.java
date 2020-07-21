@@ -46,25 +46,11 @@ public class ReverseLink {
 
     // 翻转第n到第m个节点
     private LinkNode traverseN2M(LinkNode head, int n, int m) {
-        // first指向第n个节点, last指向第m个节点
-        LinkNode node = head, first, last, preFirst, endLast;
-        int i = 1;
-        while (node != null) {
-            if (i == n) {
-                first = node;
-            }
-            if (i == m) {
-                last = node;
-            }
-            i++;node = node.next;
+        if (n == 1) {
+            return traverseN(head, m);
         }
-
-        // 翻转整个链表
-        if (n == 1 && m == i) {
-            return traverse(head);
-        }
-
-        // TODO 找到前驱后继翻转部分链表
+        // 找到n =1, 开始翻转
+        traverseN2M(head.next, n -1, m-1);
         return null;
     }
 
