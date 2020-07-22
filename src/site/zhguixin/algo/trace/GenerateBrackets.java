@@ -21,10 +21,10 @@ public class GenerateBrackets {
         if (n == 0) {
             return;
         }
-        traceBack(n , n, new StringBuffer(), list);
+        traceBack(n , n, new StringBuilder(), list);
     }
 
-    private void traceBack(int left, int right, StringBuffer bracket, List<String> res) {
+    private void traceBack(int left, int right, StringBuilder bracket, List<String> res) {
 //        System.out.println("》》》left=" + left + ";right=" + right);
 //        System.out.println("bracket=" + bracket + "《《《");
 

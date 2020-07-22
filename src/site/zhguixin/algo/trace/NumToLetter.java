@@ -15,11 +15,11 @@ public class NumToLetter {
     }
 
     public void combine(String digits) {
-        traceBack(new StringBuffer(), 0, digits);
+        traceBack(new StringBuilder(), 0, digits);
     }
 
     // index为输入的数字字符串中的第几个数字
-    private void traceBack(StringBuffer str, int index, String digits) {
+    private void traceBack(StringBuilder str, int index, String digits) {
         if (index == digits.length()) {
             System.out.println("str=" + str.toString());
             res.add(str.toString());

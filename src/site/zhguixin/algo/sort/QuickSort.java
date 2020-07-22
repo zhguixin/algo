@@ -1,7 +1,5 @@
 package site.zhguixin.algo.sort;
 
-import java.util.Arrays;
-
 public class QuickSort {
 
 //    public static void main(String[] args) {
@@ -22,7 +20,7 @@ public class QuickSort {
         if (start > end) {
             return;
         }
-        int pivot = partition(nums, start, end);
+        int pivot = partition2(nums, start, end);
         quickSort(nums, start, pivot - 1);
         quickSort(nums, pivot + 1, end);
     }
@@ -50,9 +48,42 @@ public class QuickSort {
         return i;
     }
 
+    // 两个指针都从前向后遍历, 可以适用于单链表的情况
+    private int partition2(int[] nums, int start, int end) {
+        // i的最终指向为pivot的位置, j用来遍历元素比较pivotValue
+        int i = start, j=start;
+        int pivotValue = nums[start];
+
+        while (j <= end) {
+            if (pivotValue > nums[j]) {
+                i++;
+                if (nums[i] != nums[j]) {
+                    exchange(nums, i ,j);
+                }
+            }
+            j++;
+        }
+        if (start != i) {
+            exchange(nums, start, i);
+        }
+        return i;
+    }
+
     private void exchange(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        int [] nums = {3,2,1,5};
+
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(nums);
+
+        for (int i = 0; i <nums.length;i++) {
+            System.out.println(nums[i]);
+        }
     }
 }

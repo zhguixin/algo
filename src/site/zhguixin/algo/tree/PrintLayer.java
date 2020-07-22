@@ -43,12 +43,12 @@ public class PrintLayer {
             TreeNode node = queue.poll();
 
             if (node.getLeft() != null) {
-                System.out.print(node.getLeft());
+                System.out.print(node.getLeft().getVal());
                 last = node.getLeft();
                 queue.offer(node.getLeft());
             }
             if (node.getRight() != null) {
-                System.out.print(node.getRight());
+                System.out.print(node.getRight().getVal());
                 last = node.getRight();
                 queue.offer(node.getRight());
             }

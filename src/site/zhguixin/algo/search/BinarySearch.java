@@ -2,7 +2,7 @@ package site.zhguixin.algo.search;
 
 public class BinarySearch {
 
-    public int searchBase(int[] nums, int target) {
+    public int search(int[] nums, int target) {
         int left = 0, right = nums.length;
         while (left < right) {
             int mid = left + (right - left)/2;
@@ -18,7 +18,7 @@ public class BinarySearch {
     }
 
     // [1,2,2,2,3]
-    public int search(int[] nums, int target) {
+    public int searchLeftEdge(int[] nums, int target) {
         // 搜索区间左闭右开: [left,right)
         int left = 0, right = nums.length;
         while (left < right) {
@@ -51,7 +51,7 @@ public class BinarySearch {
 
     // 该函数查找等于给定数组nums中最后一个等于target的元素下标
     // nums = [1,2,2,2,3], target = 2, 返回下标3
-    public int searchV2(int[] nums, int target) {
+    public int searchRightEdge(int[] nums, int target) {
         // 搜索区间左闭右开: [left,right)
         int left = 0, right = nums.length;
         while (left < right) {
@@ -68,6 +68,7 @@ public class BinarySearch {
 
         // left的滑动区间为[0, nums.length]
         // 此处判断避免越界
+        System.out.println(left);
         if (left == 0) {
             return -1;
         }
@@ -76,5 +77,13 @@ public class BinarySearch {
         } else {
             return -1;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        BinarySearch binarySearch = new BinarySearch();
+        int[] nums = {9,9,9,9,9,9}; int target = 8;
+        int rightEdge = binarySearch.searchRightEdge(nums, target);
+        System.out.println(rightEdge);
     }
 }

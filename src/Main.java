@@ -36,7 +36,7 @@ public class Main {
     private static void binarySearch() {
         int [] arr = {1,2,2,2,3,4};
         BinarySearch binarySearch = new BinarySearch();
-        System.out.println(binarySearch.searchBase(arr, 2));
+        System.out.println(binarySearch.search(arr, 2));
     }
 
     private static void quickSort() {
