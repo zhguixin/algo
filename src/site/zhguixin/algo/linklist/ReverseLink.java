@@ -22,7 +22,7 @@ public class ReverseLink {
     }
 
     private LinkNode reversePair(LinkNode node) {
-        if (node == null || node.next == null) {
+        if (node.next == null) {
             return node;
         }
 
@@ -30,6 +30,50 @@ public class ReverseLink {
         node.next = reversePair(newHead.next);
         newHead.next = node;
         return newHead;
+    }
+
+    // k个一组反转链表
+    private LinkNode reverseKGroup(LinkNode head, int k) {
+        if (head == null) {
+            return null;
+        }
+
+        LinkNode nodeTemp = head;
+        LinkNode nodeHeadTemp = head;
+        for (int i = 0; i < k; i++) {
+            if (nodeTemp == null) {
+                return head;
+            }
+            nodeTemp = nodeTemp.next;
+        }
+
+        LinkNode newHead = reverseBetween(nodeHeadTemp, nodeTemp);
+        nodeHeadTemp.next = reverseKGroup(nodeTemp, k);
+
+        return newHead;
+    }
+
+    private LinkNode reverseBetween2(LinkNode node1, LinkNode node2) {
+        LinkNode pre = node1, cur = node1.next;
+
+        while (cur != node2) {
+            LinkNode temp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = temp;
+        }
+        return pre;
+    }
+
+    // 递归反转node1~node2之间的链表
+    private LinkNode reverseBetween(LinkNode node1, LinkNode node2) {
+        if (node1.next == node2) {
+            return node1;
+        }
+        LinkNode last = reverseBetween(node1.next, node2);
+        node1.next.next = node1;
+        node1.next = null;
+        return last;
     }
 
     // 翻转以head为头节点的前n个节点
@@ -65,6 +109,7 @@ public class ReverseLink {
             LinkNode temp = cur.next;
             // 当前节点的next指针向前指
             cur.next = pre;
+//            pre.next = null;
             // pre指针向前走
             pre = cur;
             // cur指针向前走
@@ -117,7 +162,8 @@ public class ReverseLink {
         a3.next = a4;
         a4.next = a5;
         ReverseLink reverseLink = new ReverseLink();
-        LinkNode head = reverseLink.reversePair2(a1);
+        LinkNode head = reverseLink.reverseKGroup(a1, 2);
+//        LinkNode head = reverseLink.reverse2(a1);
         LinkNode tempHead = head;
         while (tempHead != null) {
             System.out.println(tempHead.val);

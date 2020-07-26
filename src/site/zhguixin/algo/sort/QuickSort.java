@@ -77,7 +77,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        int [] nums = {3,2,1,5};
+        int [] nums = {4,5,1,6,2,7,3};
 
         QuickSort quickSort = new QuickSort();
         quickSort.sort(nums);
@@ -86,4 +86,11 @@ public class QuickSort {
             System.out.println(nums[i]);
         }
     }
+
+    /*
+     * 利用快排思想解题的思路:
+     * 求无序数组中最小的k个数, 先进一次partition,得到pivot,如果:
+     * pivot > k-1: (start, pivot-1)
+     * pivot < k-1: (pivot+1, end)
+     */
 }

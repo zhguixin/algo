@@ -4,7 +4,13 @@ public class JumpGame {
 
     // 在数组中跳跃, 判断能否跳跃到最后一个位置, 即nums[len -1]
     public boolean canJumpToEnd(int[] nums) {
-        return false;
+        int len = nums.length;
+        int farthest = 0;
+        for (int i = 0; i < len;i++) {
+            farthest = Math.max(farthest, i + nums[i]);
+            if (farthest <= i) return false;
+        }
+        return farthest >= len;
     }
 
     // 贪心算法
