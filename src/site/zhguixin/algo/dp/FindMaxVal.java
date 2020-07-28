@@ -10,11 +10,11 @@ public class FindMaxVal {
         Arrays.fill(dp, nums[0]);
 
         for(int i = 1; i < nums.length; i++) {
-            System.out.println((dp[i-1] + nums[i]));
-            System.out.println(nums[i]);
+//            System.out.println((dp[i-1] + nums[i]));
+//            System.out.println(nums[i]);
             // 状态转移方程
             dp[i] = Math.max(dp[i-1] + nums[i], nums[i]);
-            System.out.println(dp[i]);
+//            System.out.println(dp[i]);
         }
 
         int max = dp[0];
@@ -22,5 +22,16 @@ public class FindMaxVal {
             if (dp[i] > max) max = dp[i];
         }
         return max;
+    }
+
+    public int findMaxSum2(int[] nums) {
+        int maxSum = nums[0], sum = nums[0];
+        for (int i = 1;i < nums.length;i++) {
+            sum = Math.max(nums[i], sum + nums[i]);
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+        }
+        return maxSum;
     }
 }

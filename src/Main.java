@@ -14,11 +14,11 @@ public class Main {
         System.out.println("Hello World!");
 //        heapSort();
 //        binarySearch();
-//        findMaxVal();
+        findMaxVal();
 //        findMathCapacity();
 //        getMinInStack();
 //        findMinDistance();
-        iterator();
+//        iterator();
     }
 
     /**
@@ -49,7 +49,7 @@ public class Main {
     private static void findMaxVal() {
         int [] arr = {1,-2,3,10,-4,7,2,-5};
         FindMaxVal findMaxVal = new FindMaxVal();
-        System.out.println(findMaxVal.findMaxSum(arr));
+        System.out.println(findMaxVal.findMaxSum2(arr));
     }
 
     private static void findMathCapacity() {

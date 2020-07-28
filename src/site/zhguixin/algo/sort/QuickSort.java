@@ -93,4 +93,7 @@ public class QuickSort {
      * pivot > k-1: (start, pivot-1)
      * pivot < k-1: (pivot+1, end)
      */
+    // 快排思想的运用:
+    // (1) 无序数组中第K的数
+    // (2) 螺母螺丝匹配问题
 }

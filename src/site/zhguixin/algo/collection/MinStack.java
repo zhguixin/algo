@@ -19,7 +19,7 @@ public class MinStack {
 
     public void push(Integer num) {
         stack.push(num);
-        // 当辅助栈栈顶大于等于入栈元素时,也要把该元素压入辅助栈
+        // 当辅助栈栈顶大于等于入栈元素时(说明入栈的元素是小值), 也要把该元素压入辅助栈
         if (assitStack.isEmpty() || assitStack.peek() >= num) {
             assitStack.push(num);
         }

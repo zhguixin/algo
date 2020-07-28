@@ -1,4 +1,4 @@
-package site.zhguixin.algo.math;
+package site.zhguixin.algo.search;
 
 public class GetSqrt {
 

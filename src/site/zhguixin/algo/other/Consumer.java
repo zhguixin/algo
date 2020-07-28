@@ -1,9 +1,12 @@
 package site.zhguixin.algo.other;
 
 import java.util.LinkedList;
+import java.util.concurrent.LinkedBlockingQueue;
 
 class Consumer {
 
+
+//    LinkedBlockingQueue
     private LinkedList<String> storeList;
 
     public Consumer(LinkedList<String> list) {

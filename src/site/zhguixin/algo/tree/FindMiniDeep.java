@@ -14,6 +14,7 @@ public class FindMiniDeep {
             // 向四周扩散节点
             for (int i = 0; i < queue.size(); i++) {
                 TreeNode cur = queue.poll();
+                // 找到一个叶子节点立即返回
                 if (cur.getLeft() == null && cur.getRight() == null) {
                     return depth;
                 }

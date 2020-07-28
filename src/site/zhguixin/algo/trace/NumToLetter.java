@@ -11,7 +11,7 @@ public class NumToLetter {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         NumToLetter letter = new NumToLetter();
-        letter.combine("234");
+        letter.combine("23");
     }
 
     public void combine(String digits) {
