@@ -18,4 +18,28 @@ public class GetSqrt {
         }
         return left;
     }
+
+    private int getSqrt(int num, float precision) {
+        int left = 0, right = num / 2;
+        int last_middle = 0;
+        while (left <= right) {
+            int middle = left + (right - left)/2;
+            if (num / middle > middle) {
+                left = middle + 1;
+                last_middle = middle;
+            } else if (num / middle < middle) {
+                right = middle - 1;
+            } else {
+                return middle;
+            }
+        }
+        return last_middle;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        GetSqrt getSqrt = new GetSqrt();
+        float res = getSqrt.get(3f, 0.01F);
+        System.out.print("res=" + res);
+    }
 }

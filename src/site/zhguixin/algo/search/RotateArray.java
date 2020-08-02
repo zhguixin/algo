@@ -46,6 +46,10 @@ public class RotateArray {
         while (low < high) {
             System.out.println("low=" + low + ";high=" + high);
             int mid = low + (high - low)/2;
+            // 线性查找到, 直接返回low
+            if (target == nums[low]) {
+                return low;
+            }
             if (target == nums[mid]) {
                 return mid;
             } else if (nums[low] < nums[mid]) {// [low,mid]是递增区间
@@ -56,13 +60,15 @@ public class RotateArray {
                     // 否则在[mid+1,high]这个区间里查找
                     low = mid+1;
                 }
-            } else {// [mid, high]是递增区间
+            } else if (nums[low] > nums[mid]) {// [mid, high]是递增区间
                 if (nums[high] > target && nums[mid] < target) {
                     // target在这个有序区间里
                     low = mid + 1;
                 } else {
                     high = mid - 1;
                 }
+            } else {// 线性查找吧
+                low++;
             }
         }
         return -1;
