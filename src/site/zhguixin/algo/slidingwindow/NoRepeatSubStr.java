@@ -9,6 +9,7 @@ public class NoRepeatSubStr {
         String str = "abcabcbb";
 //        String str = "bbbbbbb";
         noRepeatSubStr.find(str.toCharArray());
+        noRepeatSubStr.find2(str);
     }
 
     public int find(char[] strs) {
@@ -44,5 +45,34 @@ public class NoRepeatSubStr {
         }
         System.out.println("result=" + result);
         return result;
+    }
+
+    public int find2(String str) {
+        int left = 0, right = 0;
+        int maxLen = 0, start = 0;
+        char[] count = new char[256];
+        char[] arr = str.toCharArray();
+        int len = arr.length;
+
+        while (right < len) {
+            char ch = arr[right];
+            count[ch]++;
+            right++;
+
+            // if做判断也可以，count++完，再立即减减
+            if (count[ch] > 1) {
+                count[ch]--;
+                left++;
+            }
+
+            int tempLen = right - left;
+            if (tempLen > maxLen) {
+                maxLen = tempLen;
+                start = left;
+            }
+        }
+
+        System.out.println("amxLen=" + maxLen + ";start=" + start + ";str=" + str.substring(start, start + maxLen));
+        return maxLen;
     }
 }
