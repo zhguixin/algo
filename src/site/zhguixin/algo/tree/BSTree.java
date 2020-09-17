@@ -149,4 +149,20 @@ public class BSTree {
 //        }
 //        return kLayerNum;
 //    }
+
+    int min  = Integer.MAX_VALUE;
+    TreeNode pre = null;
+    // 二叉搜索树节点绝对值得最小值
+    public void getDif(TreeNode root) {
+        if (root == null) {
+            //
+        }
+
+        getDif(root.getRight());
+        if (pre != null) {
+//            min = Math.min(min, root.getVal() - pre.getVal());
+        }
+        getDif(root.getLeft());
+
+    }
 }
